@@ -1,16 +1,6 @@
-'use strict';
-const puppeteer = require('puppeteer');
-main();
+import puppeteer, { Page } from 'puppeteer';
 
-function main() {
-  search().then(res => {
-    console.log('finish');
-  }).catch(err => {
-    console.error(err);
-  });
-}
-
-async function search() {
+export const editSchedule = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setRequestInterception(true);
@@ -28,7 +18,7 @@ async function search() {
   browser.close();
 }
 
-async function deleteAllSchedules(page) {
+async function deleteAllSchedules(page: Page) {
   const handles = await page.$$('.sc-bZQynM');
   for (const handle of handles) {
     await handle.click();
@@ -40,7 +30,7 @@ async function deleteAllSchedules(page) {
   }
 }
 
-async function addSchedule(page, row, column, name, time) {
+async function addSchedule(page: Page, row: number, column: number, name: string, time: number) {
   await page.click(`.sc-chPdSV:nth-child(${row}) .sc-fjdhpX:nth-child(${column})`);
   await page.waitFor(500);
   await page.type('input[name="name"]', name);
@@ -53,7 +43,7 @@ async function addSchedule(page, row, column, name, time) {
   ])
 }
 
-async function getSchedules(page) {
+async function getSchedules(page: Page) {
   return await page.evaluate(() => {
     return Array.from(document.querySelectorAll('.sc-bZQynM')).map(div => (div.textContent)); // h3태그 의 text 가져옴
   });

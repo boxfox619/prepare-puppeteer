@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "tsc -p tsconfig.json && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   "homepage": "https://github.com/boxfox619/prepare-puppeteer#readme",
   "dependencies": {
     "puppeteer": "^1.19.0"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^1.19.1",
+    "typescript": "^3.5.3"
   }
 }
