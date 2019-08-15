@@ -1,0 +1,22 @@
+{
+  "name": "prepare-puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boxfox619/prepare-puppeteer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boxfox619/prepare-puppeteer/issues"
+  },
+  "homepage": "https://github.com/boxfox619/prepare-puppeteer#readme",
+  "dependencies": {
+    "puppeteer": "^1.19.0"
+  }
+}
